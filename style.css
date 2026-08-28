@@ -373,6 +373,17 @@ summary {
   border-radius: 2px;
 }
 
+.repo-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid var(--navy);
+}
+
+.repo-link:hover { color: var(--amber); border-color: var(--amber); }
+
 @media (prefers-reduced-motion: reduce) {
   #submit-btn { transition: none; }
 }

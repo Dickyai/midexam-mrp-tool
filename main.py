@@ -245,10 +245,10 @@ def compute_all(npm: str):
     luc_initial = generate_requirement(digits, 3, 4)
     luc_sr = {2: digits[5] * 10}
 
-    mcp = run_mrp("MCP - Minimum Cost per Period", heuristic_mcp, GR, 0, mcp_sr)
-    ppb = run_mrp("PPB - Part-Period Balancing", heuristic_ppb, GR, ppb_initial, {})
-    ltc = run_mrp("LTC - Least Total Cost", heuristic_ltc, GR, ltc_initial, {})
-    luc = run_mrp("LUC - Least Unit Cost", heuristic_luc, GR, luc_initial, luc_sr)
+    mcp = run_mrp("MCP", heuristic_mcp, GR, 0, mcp_sr)
+    ppb = run_mrp("PPB", heuristic_ppb, GR, ppb_initial, {})
+    ltc = run_mrp("LTC", heuristic_ltc, GR, ltc_initial, {})
+    luc = run_mrp("LUC", heuristic_luc, GR, luc_initial, luc_sr)
 
     return {"GR": GR, "results": [mcp, ppb, ltc, luc]}
 
