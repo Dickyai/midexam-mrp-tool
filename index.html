@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MRP Lot Sizing — Koreksi UTS</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://pyscript.net/releases/2024.11.1/core.css">
+<script type="module" src="https://pyscript.net/releases/2024.11.1/core.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-text">
+        <p class="eyebrow">Production Planning &middot; MRP Lot Sizing Engine</p>
+        <h1>Soal Ujian Tengah Semester (UTS)</h1>
+        <p class="lede">
+          Tool koreksi UTS Material Requirements Planning — Gross Requirement
+          dibangkitkan otomatis dari 8 digit NPM mahasiswa, lalu dihitung
+          dengan <strong>MCP</strong>, <strong>PPB</strong>, <strong>LTC</strong>,
+          dan <strong>LUC</strong>.
+        </p>
+        <a class="soal-btn" href="https://drive.google.com/file/d/1MRR1-mjuL9W1VhLLWlVxxCNfdCMMBBl9/view?usp=sharing" target="_blank" rel="noopener">
+          Lihat Soal UTS &nbsp;↗
+        </a>
+      </div>
+
+      <div class="spec-panel">
+        <p class="spec-title">Konstanta Sistem</p>
+        <dl class="spec-list">
+          <div class="spec-row"><dt>Setup Cost</dt><dd>650 / order</dd></div>
+          <div class="spec-row"><dt>Holding Cost</dt><dd>1.5 / unit / periode</dd></div>
+          <div class="spec-row"><dt>Lead Time</dt><dd>1 periode</dd></div>
+          <div class="spec-row"><dt>Horizon</dt><dd>12 periode</dd></div>
+        </dl>
+        <div class="ruler">
+          <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+          <span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
+        </div>
+        <p class="ruler-caption">Horizon perencanaan (periode)</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="input-panel" py-when="dom-content-loaded">
+      <label for="npm-input">NPM (8 digit)</label>
+      <div class="input-row">
+        <input id="npm-input" type="text" inputmode="numeric" maxlength="8"
+               placeholder="cth. 30444999" autocomplete="off">
+        <button id="submit-btn" py-click="on_submit">Hitung</button>
+      </div>
+      <p id="error-box" class="error"></p>
+    </section>
+
+    <div id="output" class="output"></div>
+
+    <footer class="site-footer">
+      <p>Kode Python asli tersedia di <code>main.py</code> pada repo ini — engine yang sama persis dengan yang dipakai untuk memeriksa jawaban UTS mahasiswa.</p>
+    </footer>
+  </main>
+
+  <script type="py" src="./main.py" config='{"packages":[]}'></script>
+
+</body>
+</html>
